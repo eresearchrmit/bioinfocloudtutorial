@@ -3,7 +3,7 @@
 
 _Ian Thomas, Nick May_
 
-![](https://github.com/eresearch/meme.jpg "")
+![](https://github.com/eresearchrmit/bioinfocloudtutorial/blob/master/meme.jpg "")
 
 ##  Introduction
 
