@@ -16,7 +16,7 @@ This workshop is intended as  a brief introduction to multiple topics in cloud c
 
 ## 1. The NeCTAR Research Cloud
 
-The NeCTAR research cloud (RC)  (http://nectar.org.au ) is a national facility that provides research compute resources to australian researchers.  The good news is that you have access to it right now, as all Austrialian researchers are allocated a small amount of resources with which to experiment.  RMIT has its own share of these resources that it can provide to RMIT researchers through an allocation scheme.
+The NeCTAR research cloud (RC)  (http://nectar.org.au ){target="_blank"} is a national facility that provides research compute resources to australian researchers.  The good news is that you have access to it right now, as all Austrialian researchers are allocated a small amount of resources with which to experiment.  RMIT has its own share of these resources that it can provide to RMIT researchers through an allocation scheme.
 
 The primary purpose for the RC is for scaling up research programs to utilise more resources than are available on a typical desktop.  For example the largest NeCTAR instance has 32 CPU cores and 64GB or RAM, and you can also create multiple instances on which to run your programs.
 
