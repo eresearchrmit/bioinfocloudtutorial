@@ -14,6 +14,8 @@ We introduce a well-known platform for building computational workflows of bioin
 
 This workshop is intended as  a brief introduction to multiple topics in cloud computing for research in bioinformatics.   Hence we utilise material from existing tutorials and  there is much more material here than can be reasonably be expected to be explored in an afternoon.  We suggest you dip into the material as needed.  In most cases there are links to follow on material or for all the material in the specific tutorial .  Also, the staff at the Research Technology services are available to help give advice about how to adapt some of these concepts to your specific research problems. Have fun!
 
+The sample data files mentioned in the tutorial can be found [Here](https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data)
+
 ## 1. The NeCTAR Research Cloud
 
 The NeCTAR research cloud (RC)  (http://nectar.org.au ) is a national facility that provides research compute resources to australian researchers.  The good news is that you have access to it right now, as all Austrialian researchers are allocated a small amount of resources with which to experiment.  RMIT has its own share of these resources that it can provide to RMIT researchers through an allocation scheme.
