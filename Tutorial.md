@@ -7,9 +7,7 @@ _Ian Thomas, Nick May_
 
 ##  Introduction
 
-This workshop introduces the NeCTAR research cloud, and how to create a specialised nodes for bioinformatics on the cloud for running common tools including your own Python or R programs.
-
-We introduce a well-known platform for building computational workflows of bioinformatics programs, and then show how to package up those tools (including ones you’ve created) into reusable containers.     Finally we address the problem of efficiently using these new cloud resources to speed up the execution of programs.
+This workshop introduces the NeCTAR research cloud, and how to create a specialised nodes for bioinformatics on the cloud for running common tools including your own Python or R programs. We introduce a well-known platform for building computational workflows of bioinformatics programs, and then show how to package up those tools (including ones you’ve created) into reusable containers.     Finally we address the problem of efficiently using these new cloud resources to speed up the execution of programs.
 
 
 This workshop is intended as  a brief introduction to multiple topics in cloud computing for research in bioinformatics.   Hence we utilise material from existing tutorials and  there is much more material here than can be reasonably be expected to be explored in an afternoon.  We suggest you dip into the material as needed.  In most cases there are links to follow on material or for all the material in the specific tutorial .  Also, the staff at the Research Technology services are available to help give advice about how to adapt some of these concepts to your specific research problems. Have fun!
@@ -270,7 +268,7 @@ Assume two bioconda servers `server-a` and `server-b`. Both have been created on
 
 The first step is to temporarily copy your private key file `mykey.pem` onto the `server-a`
 
-        scp ~/.ssh/mykey.pem -i ~/.ssh/mykey.pem  \ ubuntu@server-a:/home/ubuntu/.ssh/mykey.pem
+        scp ~/.ssh/mykey.pem -i ~/.ssh/mykey.pem ubuntu@server-a:/home/ubuntu/.ssh/mykey.pem
 
 (this instruction will change if you are using putty on windows to connect to your NeCTAR instance)
 
