@@ -7,12 +7,12 @@ _Ian Thomas, Nick May_
 
 ##  Introduction
 
-This workshop introduces the NeCTAR research cloud, and how to create a specialised nodes for bioinformatics on the cloud for running common tools including your own Python or R programs.
-
-We introduce a well-known platform for building computational workflows of bioinformatics programs, and then show how to package up those tools (including ones you’ve created) into reusable containers.     Finally we address the problem of efficiently using these new cloud resources to speed up the execution of programs.
+This workshop introduces the NeCTAR research cloud, and how to create a specialised nodes for bioinformatics on the cloud for running common tools including your own Python or R programs. We introduce a well-known platform for building computational workflows of bioinformatics programs, and then show how to package up those tools (including ones you’ve created) into reusable containers.     Finally we address the problem of efficiently using these new cloud resources to speed up the execution of programs.
 
 
 This workshop is intended as  a brief introduction to multiple topics in cloud computing for research in bioinformatics.   Hence we utilise material from existing tutorials and  there is much more material here than can be reasonably be expected to be explored in an afternoon.  We suggest you dip into the material as needed.  In most cases there are links to follow on material or for all the material in the specific tutorial .  Also, the staff at the Research Technology services are available to help give advice about how to adapt some of these concepts to your specific research problems. Have fun!
+
+The sample data files mentioned in the tutorial can be found [Here](https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data)
 
 ## 1. The NeCTAR Research Cloud
 
@@ -37,13 +37,13 @@ We will be using one of these packages:  Bioconda, in the next section.
 ## 2. Deploy Bioconda on the cloud
 
 
-Bioconda (https://bioconda.github.io)is a Linux distribution that includes hundreds of applications from the bioinformatics domain.  It can provide an excellent platform for computational biology analyses. It can provide an environment  for running your own programs or tools.
+Bioconda (https://bioconda.github.io) is a Linux distribution that includes hundreds of applications from the bioinformatics domain.  It can provide an excellent platform for computational biology analyses. It can provide an environment  for running your own programs or tools.
 For this cloud deployment, we will use the NeCTAR application environment preconfigured for Bioconda (and docker) Here are the detailed steps to follow to create a bioconda VM on NeCTAR: https://support.ehelp.edu.au/support/solutions/articles/6000174749-nectar-applications-bioconda
 
 Notes:
 
-* for the Instance flavour field, please select m2.medium (as we need a larger base directory to store docker images); 
-* for the instance image use NeCTAR Ubuntu 18.04 LTS (Bionic) amd64 (with docker), as we use that docker functionality later.
+* for the Instance flavour field, please select `m2.medium` (as we need a larger base directory to store docker images);
+* for the instance image use `NeCTAR Ubuntu 18.04 LTS (Bionic) amd64 (with docker)`, as we use that docker functionality later.
 
 Then connect to your instance  (e.g., putty)...
 
@@ -81,7 +81,7 @@ Reverse complement FASTA/Q:
         python3 program.py
         source deactivate
 
-### Use R 
+### Use R
 
         conda create --name renv r
         source activate renv
@@ -113,10 +113,10 @@ The storage on the nectar instance is ephemeral, which means that if you delete 
 
 There are many choices in this space but here we demonstrate Galaxy (https://galaxyproject.org).  It  allows applications (installed using conda or docker containers) to be chained together into reproducible execution pipelines.
 
-Although it possible install your own copy of galaxy server (we will see this later), for this workshop we will use an existing publically available australian galaxy instance: 
+Although it possible install your own copy of galaxy server (we will see this later), for this workshop we will use an existing publically available australian galaxy instance:
 https://usegalaxy.org.au
 
-The basic tutorial for galaxy is at  https://galaxyproject.org/tutorials/g101/.  It is not expected that you can finish this tutorial in this session, but dip in and have a look around. 
+The basic tutorial for galaxy is at  https://galaxyproject.org/tutorials/g101/.  It is not expected that you can finish this tutorial in this session, but dip in and have a look around.
 
 ## 4. Containers for bioinformatics
 
@@ -127,7 +127,7 @@ Here we introduce docker and show how it can be used to quickly run existing pac
 
 Basic commands:
 
-* `docker build` = create an image from Dockerfile 
+* `docker build` = create an image from Dockerfile
 * `docker pull` = download an existing image
 * `docker run` = create and execute a container from the image
 * `docker ps` = show the currently running containers
@@ -153,7 +153,7 @@ Examples:
 
     (This example is from https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/media/#41 )
 
-* There are many ready-to-use bioinformatics containers at : http://biocontainers.pro . For example,  
+* There are many ready-to-use bioinformatics containers at : http://biocontainers.pro . For example,
 
         sudo docker pull quay.io/biocontainers/samtools:0.1.19--2
         sudo docker run --rm -v $PWD:/data quay.io/biocontainers/samtools:0.1.19--2 samtools view -S -b data/alignment.sam > alignment.bam
@@ -185,7 +185,7 @@ Examples:
     See https://andrewguy.github.io/RStudio-on-Nectar-with-Docker/  for more information
 
 * Galaxy Workflow engine
-        
+
     This is your own personal instance of the workflow engine we saw earlier
 
         sudo docker run -d -p 8080:80 bgruening/galaxy-stable
@@ -198,13 +198,13 @@ Examples:
 
 ## 5. Cloud-based Scaling
 
-The issue of scaling up a problem to properly utilise cloud resources can be complicated and there are many different approaches that are possible. 
+The issue of scaling up a problem to properly utilise cloud resources can be complicated and there are many different approaches that are possible.
 
 Here we concentrate on when to use various approaches and what benefits and in what situations.
 
  We consider two different approaches to this task:
 * **Vertical scaling** (using a single larger VM with multiple cores)
-* **Horizontal scaling** (using a large number of smaller VMs running parts of a single problem or  multiple instances of a problem). 
+* **Horizontal scaling** (using a large number of smaller VMs running parts of a single problem or  multiple instances of a problem).
 
 ### Vertical Scaling
 
@@ -219,7 +219,7 @@ In vertical scaling, we increase the performance of a program by utilizing the m
             time.sleep(0.1)
         from multiprocess import Pool
         ncores = 2
-        pool = Pool(ncores) 
+        pool = Pool(ncores)
         # sequential run
         %timeit list(map(sleeping, range(24)))
         # parallel run
@@ -230,7 +230,7 @@ In vertical scaling, we increase the performance of a program by utilizing the m
         1.2 s ± 278 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
-This example comes from a tutorial at  https://hpc-carpentry.github.io/hpc-python/06-parallel 
+This example comes from a tutorial at  https://hpc-carpentry.github.io/hpc-python/06-parallel
 
 #### Vertical scaling in R
 
@@ -281,7 +281,7 @@ Assume two bioconda servers `server-a` and `server-b`. Both have been created on
 
 The first step is to temporarily copy your private key file `mykey.pem` onto the `server-a`
 
-        scp ~/.ssh/mykey.pem -i ~/.ssh/mykey.pem  \ ubuntu@server-a:/home/ubuntu/.ssh/mykey.pem  
+        scp ~/.ssh/mykey.pem -i ~/.ssh/mykey.pem ubuntu@server-a:/home/ubuntu/.ssh/mykey.pem
 
 (this instruction will change if you are using putty on windows to connect to your NeCTAR instance)
 
@@ -305,7 +305,7 @@ Now you can run the parallel command from the server-a to schedule execution of 
 
         seq 10 | parallel --env PATH  -S server-a,server-b ~/.parallel/my_cluster 'python3 program.py ' {}
 
-This should output 
+This should output
 
         Hello from run 1
         Hello from run 2
@@ -333,11 +333,7 @@ When should you use an HPC system?    HPC is best suited to when you need well-k
 
 For more information about HPC user at RMIT, please talk to the Research Technology Service team, who can advise you of the best next steps.
 
-Contact  eResearch and Research Technology Services under the form at 
+Contact  eResearch and Research Technology Services under the form at
 https://rmitheda.force.com/Researcherportal/s/research-support
 
 ## Notes:
-
-Get more space for images by moving location used by docker: https://blog.adriel.co.nz/2018/01/25/change-docker-data-directory-in-debian-jessie/
-
-Q: what about backup? (nectar vms are not backed up by default), and containers are neither.
