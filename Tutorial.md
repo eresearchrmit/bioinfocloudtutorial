@@ -53,7 +53,6 @@ You can download the same test files fot this tutorial using the following comma
         wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/alignment.sam
         wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/program.py
         wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/scaling.py
-        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/vertical.py
 
 Conda uses the idea of environments to separate installations  for different tasks.  Environments can have different packages and versions of tools.
 
@@ -79,7 +78,7 @@ Reverse complement FASTA/Q:
 ### Use Python
 
 
-        conda create --name pythonenv python=3 pandas numpy timeit multiprocess
+        conda create --name pythonenv python=3 pandas numpy multiprocess
         source activate pythonenv
         python3 program.py
         source deactivate
@@ -130,11 +129,23 @@ Here we introduce docker and show how it can be used to quickly run existing pac
 
 Basic commands:
 
-* `docker build` = create an image from Dockerfile
 * `docker pull` = download an existing image
+
+        sudo docker pull hello-world
 * `docker run` = create and execute a container from the image
+
+        sudo docker run hello-world
+
+
 * `docker ps` = show the currently running containers
+
+        sudo docker ps -a
+
 * `docker rm` = delete a container
+
+        sudo docker rm nameofcontainer
+
+* `docker build` = create an image from Dockerfile
 
 Examples:
 
@@ -169,7 +180,7 @@ Examples:
 
 * Jupyter notebooks (for python)
 
-        sudo docker run -p 8888:8888 --name jupyter jupyter/scipy-notebook
+        sudo docker run -p 8888:8888 --name jupyter jupyter/scipy-notebook &
 
     Then jupyter notebook will be available from http://instanceid:8888
 
@@ -179,7 +190,7 @@ Examples:
 
 * Rstudio (graphical interface)
 
-        sudo docker run -p 8080:8787 -e PASSWORD=mypass bioconductor/release_core2
+        sudo docker run -p 8080:8787 -e PASSWORD=mypass bioconductor/release_core2 &
 
     Then Rstudio will be available from http://instanceid:8080
 
@@ -191,7 +202,7 @@ Examples:
 
     This is your own personal instance of the workflow engine we saw earlier
 
-        sudo docker run -d -p 8080:80 bgruening/galaxy-stable
+        sudo docker run -d -p 8080:80 bgruening/galaxy-stable &
 
     Then galaxy will be available from http://instanceid:8080
 
@@ -215,21 +226,17 @@ In vertical scaling, we increase the performance of a program by utilizing the m
 
 #### Vertical scaling in Python
 
-To get this program file:
+Try the following two cells of python snippets in the jupter instance you created earlier:
 
-        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/vertical.py
+        !conda install -y multiprocess
 
+Then the following cell.
 
-
-And here is the content of this file:
-
-        # vertical.py
         import time
-        from timeit import timeit
+        from multiprocess import Pool
 
         def sleeping(arg):
             time.sleep(0.1)
-        from multiprocess import Pool
         ncores = 2
         pool = Pool(ncores)
         # sequential run
