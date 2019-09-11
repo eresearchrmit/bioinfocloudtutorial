@@ -51,6 +51,8 @@ You can download the same test files fot this tutorial using the following comma
 
         wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/in.fq
         wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/alignment.sam
+        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/program.py
+        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/scaling.py
 
 Conda uses the idea of environments to separate installations  for different tasks.  Environments can have different packages and versions of tools.
 
@@ -212,6 +214,14 @@ In vertical scaling, we increase the performance of a program by utilizing the m
 
 #### Vertical scaling in Python
 
+To get this program file:
+
+        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/scaling.py
+
+
+And here is the content of this file:
+
+        # Scaling.py
         import time
         from timeit import timeit
 
@@ -271,7 +281,7 @@ These examples come from the tutorial at https://nceas.github.io/oss-lessons/par
 
 There are many different ways of distributing a job across a collection of servers (called a cluster). Here we investigate an approach which uses GNU parallel to distribute jobs between Biolinux instances.  Your initial trial allocation of NeCTAR should be enough to create two small-sized instances, so these instructions could be utilised.
 
-Assume two bioconda servers `server-a` and `server-b`. Both have been created on the NeCTAR research cloud share the same private key file called `mykey.pem` and each having a conda python environment `myenv` and an identical program `program.py`:
+Assume two bioconda servers `server-a` and `server-b`. Both have been created on the NeCTAR research cloud share the same private key file called `mykey.pem` and each having a conda python environment `myenv` and an identical program `scaling.py`:
 
 
         import sys
@@ -303,7 +313,7 @@ We now need to setup a new separate set of security keys that will this server t
 
 Now you can run the parallel command from the server-a to schedule execution of other servers in your cluster. The following command runs the python `program.py` ten times with different parameters on the two elements in your cluster:
 
-        seq 10 | parallel --env PATH  -S server-a,server-b ~/.parallel/my_cluster 'python3 program.py ' {}
+        seq 10 | parallel --env PATH  -S server-a,server-b ~/.parallel/my_cluster 'python3 scaling.py ' {}
 
 This should output
 
