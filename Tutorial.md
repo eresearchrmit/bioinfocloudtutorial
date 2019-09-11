@@ -52,6 +52,7 @@ You can download the same test files fot this tutorial using the following comma
         wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/in.fq
         wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/alignment.sam
         wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/program.py
+        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/program.r
         wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/scaling.py
 
 Conda uses the idea of environments to separate installations  for different tasks.  Environments can have different packages and versions of tools.
