@@ -47,6 +47,11 @@ Notes:
 
 Then connect to your instance  (e.g., putty)...
 
+You can download the same test files fot this tutorial using the following commands:
+
+        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/in.fq
+        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/alignment.sam
+
 Conda uses the idea of environments to separate installations  for different tasks.  Environments can have different packages and versions of tools.
 
         conda create -y --name seqtktest
@@ -163,7 +168,9 @@ Examples:
 
         sudo docker run -p 8888:8888 --name jupyter jupyter/scipy-notebook
 
-    Then jupyter notebook will be available from http://localhost:8888
+    Then jupyter notebook will be available from http://instanceid:8888
+
+    where `instanceid` is the public id address for the instance from the NeCTAR dashboard.
 
     See https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html for more information
 
@@ -171,7 +178,9 @@ Examples:
 
         sudo docker run -p 8080:8787 -e PASSWORD=mypass bioconductor/release_core2
 
-    Then Rstudio will be available from http://localhost:8080
+    Then Rstudio will be available from http://instanceid:8080
+
+    where `instanceid` is the public id address for the instance from the NeCTAR dashboard.
 
     See https://andrewguy.github.io/RStudio-on-Nectar-with-Docker/  for more information
 
@@ -180,6 +189,10 @@ Examples:
     This is your own personal instance of the workflow engine we saw earlier
 
         sudo docker run -d -p 8080:80 bgruening/galaxy-stable
+
+    Then galaxy will be available from http://instanceid:8080
+
+    where `instanceid` is the public id address for the instance from the NeCTAR dashboard.
 
     See https://github.com/bgruening/docker-galaxy-stable for more information.
 
