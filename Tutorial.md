@@ -49,10 +49,11 @@ Then connect to your instance  (e.g., putty)...
 
 You can download the same test files fot this tutorial using the following commands:
 
-        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/in.fq
-        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/alignment.sam
-        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/program.py
-        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/scaling.py
+        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/in.fq
+        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/alignment.sam
+        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/program.py
+        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/scaling.py
+        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/vertical.py
 
 Conda uses the idea of environments to separate installations  for different tasks.  Environments can have different packages and versions of tools.
 
@@ -216,12 +217,13 @@ In vertical scaling, we increase the performance of a program by utilizing the m
 
 To get this program file:
 
-        wget https://github.com/eresearchrmit/bioinfocloudtutorial/tree/master/data/scaling.py
+        wget https://raw.githubusercontent.com/eresearchrmit/bioinfocloudtutorial/master/data/vertical.py
+
 
 
 And here is the content of this file:
 
-        # Scaling.py
+        # vertical.py
         import time
         from timeit import timeit
 
