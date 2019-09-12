@@ -374,8 +374,8 @@ https://rmitheda.force.com/Researcherportal/s/research-support
 
 # Finally...
 
-**Important**: You have been using your your cloud instances in the  NeCTAR cloud during this session, so unless you want to keep exploring them, you should `Delete Instance` from the drop down menu next to the instance.
-Note that any data you have created on the node will  be *deleted permently* along with the node (except if you've transferred the data to a mounted cloudstor volume).
+**Important**: You have been using your default NeCTAR cloud allocation during this session, so unless you want to keep exploring your instances, you should `Delete Instance` from the drop down menu next to the instance.
+Note that any data you have created on the node will  be *deleted permently* along with the instance (except if you've transferred the data to a mounted cloudstor volume).
 
-NeCTAR provides two small VMS for three months continuous processing time, so if you're done with experimenting for now, please delete your nodes (its also polite to other users who want resources).  You don't want to come back months later to find you're still running nodes and have wasted all your free resources!
+NeCTAR provides you resources for two small instances for three months continuous processing time, so if you're done with experimenting for now, please delete your instances (its also polite to other users who want resources).  You don't want to come back months later to find you're still running instances and have wasted all your free resources!
 
