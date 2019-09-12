@@ -152,11 +152,19 @@ Examples:
 
 * Samtools (tool for working with SAM and BAM alignment files)
 
-    Create a my_samtools/Dockerfile:
+    Create a Dockerfile in a my_samtools directory (using the nano editor)
+
+        mkdir ~/my_samtools
+        nano ~/my_samtools/Dockerfile
+
+    Then enter the following three lines
+
 
         FROM ubuntu
         RUN apt-get update && apt-get install -y samtools
-        ENTRYPOINT [“samtools”]
+        ENTRYPOINT ["samtools"]
+
+    Press CTRL-X to exit the editor.
 
     Build the image from the Dockerfile
 
@@ -177,7 +185,14 @@ Examples:
     All the tools from biolinux you may installed have their equivalent biocontainer versions.
 
 
-    _Note you will need to open 8888/8080 ports using a security group for these to work._
+    You will need to open the 8888 and 8080 ports for ingress like you did in the first tutorial (for ssh port 22) in order to access for the following three docker examples.
+    To do this, you should
+    * identify which security group your nectar instance is using by clicking on the instance name in the NeCTAR dashboard;
+    * go to  `Security Groups` in the `Network` tab, find that security group, click `Manage Rules`;
+    * add separate entries for ingress 8080 and for ingress 8888 (like we did  with SSH/22 earlier.)
+
+    Your node should automically pickup the changes so ports 8080 and 8888 are accessible from outside and the servers you are about to create can be accessed from the internet.
+
 
 * Jupyter notebooks (for python)
 
